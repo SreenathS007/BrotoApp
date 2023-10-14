@@ -63,7 +63,7 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     style: Theme.of(context)
                         .textTheme
                         .headlineSmall
-                        ?.copyWith(color: Colors.black),
+                        ?.copyWith(color: Colors.white),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

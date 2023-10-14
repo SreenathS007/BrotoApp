@@ -150,12 +150,12 @@ class _ScreenAddState extends State<ScreenAdd> {
                   height: 20,
                 ),
                 TextFormField(
-                  maxLength: 20,
+                  maxLength: 10,
                   keyboardType: TextInputType.number,
                   controller: _phoneController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: "Phone Number Required",
+                    hintText: "Phone Number",
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {

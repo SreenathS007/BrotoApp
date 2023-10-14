@@ -1,3 +1,8 @@
+import 'dart:io';
+
+import 'package:brototype_app/AdminPanel/registerstudent/edit_data.dart';
+import 'package:brototype_app/AdminPanel/registerstudent/register_home.dart';
+import 'package:brototype_app/database/functions/function/register_db_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +30,131 @@ class ScreenProfile extends StatefulWidget {
 class _ScreenProfileState extends State<ScreenProfile> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    getallstudents();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Student Profile'),
+        automaticallyImplyLeading: false,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (ctx2) => const screenHome()));
+              },
+              child: const Icon(Icons.close_rounded),
+            ),
+          )
+        ],
+      ),
+      body: SafeArea(
+          child: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Text(
+                  "Details Of &${widget.name}",
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 40),
+                CircleAvatar(
+                  radius: 50,
+                  backgroundColor: const Color.fromARGB(255, 10, 10, 10),
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundImage: FileImage(File(widget.photo)),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Name\t",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      widget.name,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Age\t",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      widget.age,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Phone Number\t",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      widget.phone,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Address\t",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      widget.address,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton.icon(
+                    onPressed: (() {
+                      Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) {
+                        return screen_Edit(
+                            name: widget.name,
+                            age: widget.age,
+                            phone: widget.phone,
+                            address: widget.address,
+                            photo: widget.photo,
+                            index: widget.index);
+                      }));
+                    }),
+                    icon: const Icon(Icons.edit),
+                    label: const Text("edit"))
+              ],
+            ),
+          ),
+        ),
+      )),
+    );
   }
 }
