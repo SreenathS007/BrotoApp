@@ -57,7 +57,7 @@ class _ScreenProfileState extends State<ScreenProfile> {
             child: Column(
               children: [
                 Text(
-                  "Details Of &${widget.name}",
+                  "Details Of ${widget.name}",
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),

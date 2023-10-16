@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 List<String> imagePaths = [
   'assets/images/cdg1.jpg',
@@ -41,7 +42,6 @@ final List<Widget> pages = [
 
 class CodinChllge extends StatelessWidget {
   const CodinChllge({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

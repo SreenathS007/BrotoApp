@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       drawer: NavBar(),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Brototype',
           style: TextStyle(
             color: Colors.black,
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Text(
                           'Coding Challenges',
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),

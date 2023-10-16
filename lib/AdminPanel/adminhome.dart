@@ -1,3 +1,4 @@
+import 'package:brototype_app/AdminPanel/HubDetails/ad_hubdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/AdminPanel/adminlogin.dart';
@@ -16,11 +17,11 @@ class _AdminHomePageState extends State<admin_Dashboard> {
         context: context,
         builder: (BuildContext) {
           return AlertDialog(
-            title: Text('confirm Logout'),
-            content: Text('Are you sure want to Logout?'),
+            title: const Text('confirm Logout'),
+            content: const Text('Are you sure want to Logout?'),
             actions: <Widget>[
               TextButton(
-                child: Text('cancel'),
+                child: const Text('cancel'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -57,7 +58,7 @@ class _AdminHomePageState extends State<admin_Dashboard> {
               children: [
                 const SizedBox(height: 50),
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                   title: Text(
                     "Admin Panel",
                     style: Theme.of(context)
@@ -74,24 +75,24 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                         .titleMedium
                         ?.copyWith(color: Colors.white54),
                   ),
-                  leading: CircleAvatar(
+                  leading: const CircleAvatar(
                     radius: 29,
                     backgroundImage: AssetImage("assets/images/FAQsIcon.jpg"),
                   ),
                   trailing: IconButton(
-                    icon: Icon(Icons.exit_to_app),
+                    icon: const Icon(Icons.exit_to_app),
                     color: Colors.black,
                     onPressed: _logout,
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
               ],
             ),
           ),
           Container(
             color: Theme.of(context).primaryColor,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -109,9 +110,26 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     'coding videos',
                     CupertinoIcons.play_rectangle,
                     Colors.deepOrange,
+                    // onTap: () {
+                    //   Navigator.of(context).push(
+                    //     MaterialPageRoute(
+                    //       builder: (context) => null(),
+                    //     ),
+                    //   );
+                    // },
                   ),
-                  itemDashboard('Hub Details', CupertinoIcons.location_circle,
-                      Colors.pinkAccent),
+                  itemDashboard(
+                    'Hub Details',
+                    CupertinoIcons.location_circle,
+                    Colors.pinkAccent,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => add_Hubs(),
+                        ),
+                      );
+                    },
+                  ),
                   itemDashboard(
                     'Registers',
                     CupertinoIcons.person_3,
@@ -125,11 +143,20 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     },
                   ),
                   itemDashboard(
-                      'Fumigation', CupertinoIcons.square_list, Colors.teal),
+                    'Fumigation',
+                    CupertinoIcons.square_list,
+                    Colors.teal,
+                  ),
                   itemDashboard(
-                      'student Applied', CupertinoIcons.person_2, Colors.blue),
+                    'student Applied',
+                    CupertinoIcons.person_2,
+                    Colors.blue,
+                  ),
                   itemDashboard(
-                      'Upload', CupertinoIcons.add_circled, Colors.green),
+                    'Upload',
+                    CupertinoIcons.add_circled,
+                    Colors.green,
+                  ),
                 ],
               ),
             ),

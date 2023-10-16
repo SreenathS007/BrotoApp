@@ -20,7 +20,7 @@ class _screenHomeState extends State<screenHome> {
         title: const Text('Studnt Register'),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.only(right: 20),
             child: GestureDetector(
               onTap: () {
                 showSearch(
@@ -39,7 +39,7 @@ class _screenHomeState extends State<screenHome> {
               MaterialPageRoute(builder: (ctx) => ScreenAdd()));
         },
         tooltip: 'Add Student',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: const SafeArea(
           child: Padding(
