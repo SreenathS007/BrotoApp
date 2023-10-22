@@ -21,7 +21,7 @@ class HubPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Our Hubs',
           style: TextStyle(
             color: Colors.black,
@@ -116,7 +116,7 @@ class HubCard extends StatelessWidget {
           child: Center(
             child: Text(
               hubName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

@@ -41,7 +41,6 @@ dependencies:
   hive_flutter: ^1.1.0
   firebase_core: ^2.17.0
   firebase_auth: ^4.10.1
-  hive: ^2.2.3
   velocity_x: ^4.1.1
   flutter_svg: ^2.0.7
   path_provider: ^2.1.1
@@ -50,6 +49,7 @@ dependencies:
   youtube_player_flutter: ^8.1.2
   image_picker: ^1.0.4
   video_player: ^2.7.2
+  hive: ^2.2.3
 
 
 dev_dependencies:
@@ -85,7 +85,8 @@ flutter:
      - assets\images\logimg.png   
      - assets\images\avatar.png      
      - assets\images\coverpic.jpg 
-     - assets\images\studentAvtr.png
+     - assets\images\StudentAvatar.jpg
+     - assets\images\stdprofile.png
 
      - assets\images\codingchallenge.jpeg
      - assets\images\Hubs.jpeg         

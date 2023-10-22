@@ -37,12 +37,12 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.account_box),
             title: Text('Profile Settings'),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProfilePage(),
-              ),
-            ),
+            // onTap: () => Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => ProfilePage(),
+            //   ),
+            // ),
           ),
           ListTile(
             leading: Icon(Icons.description),

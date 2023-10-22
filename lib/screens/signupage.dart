@@ -1,5 +1,5 @@
 import 'package:brototype_app/custom_widgets/bottomNavbar.dart';
-import 'package:brototype_app/database/functions/models/userdata_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/loginpage.dart';
 import 'package:brototype_app/home.dart';
@@ -13,23 +13,12 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  TextEditingController _name = TextEditingController();
-  TextEditingController _email = TextEditingController();
-  TextEditingController _pass = TextEditingController();
-  TextEditingController _confpass = TextEditingController();
-  void registerUser(BuildContext context, email, String password) async {
-    final userBox = await Hive.openBox('userBox');
-    final newUser = User(email: email, password: password);
-    userBox.add(newUser);
-    Navigator.pop(context); // Go back to the login screen
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image(
+          const Image(
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -57,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'SignUp',
                     style: TextStyle(
                       color: Colors.white,
@@ -65,13 +54,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Padding(
+                  const SizedBox(height: 30),
+                  const Padding(
                     padding: EdgeInsets.all(25.0),
                     child: TextField(
-                      controller: _name,
                       decoration: InputDecoration(
                         hintText: 'User Name',
                         label: Text('User Name'),
@@ -80,10 +66,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(25.0),
                     child: TextField(
-                      controller: _email,
                       decoration: InputDecoration(
                         hintText: 'Email Adress',
                         label: Text('Email Adress'),
@@ -92,10 +77,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(25.0),
                     child: TextField(
-                      controller: _pass,
                       decoration: InputDecoration(
                         hintText: 'Password',
                         label: Text('Password'),
@@ -105,10 +89,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(25.0),
                     child: TextField(
-                      controller: _confpass,
                       decoration: InputDecoration(
                         hintText: 'Confirm Password',
                         label: Text('Confirm Password'),
@@ -118,13 +101,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Container(
                     height: 50,
                     width: 290,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xff0ACF83),
                     ),
                     child: ElevatedButton(
@@ -139,7 +120,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Color(0xff0ACF83)),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Signup',
                           style: TextStyle(
@@ -152,7 +133,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     padding: const EdgeInsets.only(left: 100.0, top: 30),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Already have account?",
                           style: TextStyle(
                             color: Colors.grey,
@@ -165,7 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               builder: (context) => LoginScreen(),
                             ),
                           ),
-                          child: Text(
+                          child: const Text(
                             "Login",
                             style: TextStyle(
                               color: Colors.green,

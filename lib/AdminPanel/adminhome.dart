@@ -1,8 +1,6 @@
-import 'package:brototype_app/AdminPanel/HubDetails/ad_hubdetails.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/AdminPanel/adminlogin.dart';
-import 'package:brototype_app/AdminPanel/registerstudent/register_home.dart';
 
 class admin_Dashboard extends StatefulWidget {
   const admin_Dashboard({super.key});
@@ -122,25 +120,25 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     'Hub Details',
                     CupertinoIcons.location_circle,
                     Colors.pinkAccent,
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => add_Hubs(),
-                        ),
-                      );
-                    },
+                    // onTap: () {
+                    //   Navigator.of(context).push(
+                    //     MaterialPageRoute(
+                    //       builder: (context) => add_Hubs(),
+                    //     ),
+                    //   );
+                    // },
                   ),
                   itemDashboard(
                     'Registers',
                     CupertinoIcons.person_3,
                     Colors.purple,
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => screenHome(),
-                        ),
-                      );
-                    },
+                    // onTap: () {
+                    //   Navigator.of(context).push(
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const ScreenHome(),
+                    //     ),
+                    //   );
+                    // },
                   ),
                   itemDashboard(
                     'Fumigation',
