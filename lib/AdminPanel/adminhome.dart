@@ -1,3 +1,4 @@
+import 'package:brototype_app/AdminPanel/studentregister/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/AdminPanel/adminlogin.dart';
@@ -132,13 +133,13 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     'Registers',
                     CupertinoIcons.person_3,
                     Colors.purple,
-                    // onTap: () {
-                    //   Navigator.of(context).push(
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const ScreenHome(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const student_register(),
+                        ),
+                      );
+                    },
                   ),
                   itemDashboard(
                     'Fumigation',

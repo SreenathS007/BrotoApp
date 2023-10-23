@@ -18,6 +18,12 @@ class _ScreenLoginState extends State<AdminLogin> {
   final _passwordController = TextEditingController();
 
   bool _isDataMatched = true;
+  bool _isObscure = true;
+  void _PasswordVisibility() {
+    setState(() {
+      _isObscure = !_isObscure;
+    });
+  }
 
   final _formKey = GlobalKey<FormState>();
 
@@ -60,11 +66,18 @@ class _ScreenLoginState extends State<AdminLogin> {
                 ),
                 TextFormField(
                   controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      border: OutlineInputBorder(),
-                      hintText: 'Password'),
+                  obscureText: _isObscure,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    border: OutlineInputBorder(),
+                    hintText: 'Password',
+                    suffixIcon: IconButton(
+                      icon: _isObscure
+                          ? Icon(Icons.visibility_off)
+                          : Icon(Icons.visibility),
+                      onPressed: _PasswordVisibility,
+                    ),
+                  ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Username and password must required';

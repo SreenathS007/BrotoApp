@@ -1,11 +1,12 @@
 import 'package:brototype_app/screens/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-
+  await Firebase.initializeApp();
   // if (!Hive.isAdapterRegistered(HubModelAdapter().typeId)) {
   //   Hive.registerAdapter(HubModelAdapter());
   // }

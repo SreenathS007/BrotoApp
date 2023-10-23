@@ -1,5 +1,4 @@
 import 'package:brototype_app/custom_widgets/bottomNavbar.dart';
-import 'package:brototype_app/home.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/Hubs/calicuthub.dart';
 import 'package:brototype_app/Hubs/kochihub.dart';
