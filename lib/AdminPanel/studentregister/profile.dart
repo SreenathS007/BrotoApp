@@ -27,6 +27,10 @@ class _ScreenProfileState extends State<ScreenProfile> {
   @override
   Widget build(BuildContext context) {
     getallstudents();
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+      ),
+    );
   }
 }

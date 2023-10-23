@@ -253,7 +253,7 @@ class _screenAddState extends State<screenAdd> {
         phone: _phone,
         address: _address,
         photo: _image!.path,
-        id: DateTime.now().microsecond.toString());
+        id: DateTime.now().millisecond.toString());
     print("$_name$_age$_address$_phone");
 
     addStudent(studentObject);
