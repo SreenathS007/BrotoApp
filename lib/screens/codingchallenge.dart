@@ -36,7 +36,7 @@ class _CodinChllgeState extends State<CodinChllge> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text(
+        title: const Text(
           "Coding Challenges",
           style: TextStyle(
             fontSize: 25,
@@ -64,17 +64,17 @@ class _CodinChllgeState extends State<CodinChllge> {
                   elevation: 4,
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.playlist_play,
-                        color: Colors.white,
-                        size: 40,
-                      ),
+                      // Icon(
+                      //   Icons.playlist_play,
+                      //   color: Colors.white,
+                      //   size: 40,
+                      // ),
                       Image.asset(
                         imagePaths[index],
                         height: 50,
                         fit: BoxFit.cover,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Expanded(
@@ -85,7 +85,7 @@ class _CodinChllgeState extends State<CodinChllge> {
                             children: [
                               Text(
                                 videoList[index].title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _CodinChllgeState extends State<CodinChllge> {
                               ),
                               Text(
                                 videoList[index].link,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                 ),
                               ),

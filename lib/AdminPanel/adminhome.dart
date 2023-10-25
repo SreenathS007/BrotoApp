@@ -119,18 +119,18 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                       );
                     },
                   ),
-                  itemDashboard(
-                    'Hub Details',
-                    CupertinoIcons.location_circle,
-                    Colors.pinkAccent,
-                    // onTap: () {
-                    //   Navigator.of(context).push(
-                    //     MaterialPageRoute(
-                    //       builder: (context) => add_Hubs(),
-                    //     ),
-                    //   );
-                    // },
-                  ),
+                  // itemDashboard(
+                  //   'Hub Details',
+                  //   CupertinoIcons.location_circle,
+                  //   Colors.pinkAccent,
+                  //   // onTap: () {
+                  //   //   Navigator.of(context).push(
+                  //   //     MaterialPageRoute(
+                  //   //       builder: (context) => add_Hubs(),
+                  //   //     ),
+                  //   //   );
+                  //   // },
+                  // ),
                   itemDashboard(
                     'Registers',
                     CupertinoIcons.person_3,
@@ -153,11 +153,11 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     CupertinoIcons.person_2,
                     Colors.blue,
                   ),
-                  itemDashboard(
-                    'Upload',
-                    CupertinoIcons.add_circled,
-                    Colors.green,
-                  ),
+                  // itemDashboard(
+                  //   'Upload',
+                  //   CupertinoIcons.add_circled,
+                  //   Colors.green,
+                  // ),
                 ],
               ),
             ),

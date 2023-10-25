@@ -18,5 +18,6 @@ class UserdataModal {
     required this.email,
     required this.password,
     required this.cnfmpassword,
+    this.imgPath,
   });
 }
