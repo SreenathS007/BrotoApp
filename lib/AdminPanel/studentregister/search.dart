@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:brototype_app/AdminPanel/studentregister/list_data.dart';
-import 'package:brototype_app/AdminPanel/studentregister/profile.dart';
+import 'package:brototype_app/AdminPanel/studentregister/sdtudent_profile.dart';
 import 'package:brototype_app/database/functions/function/adminFunctions/register_std_function.dart';
 import 'package:brototype_app/database/functions/models/adminmodel/register_model.dart';
-
 import 'package:flutter/material.dart';
 
-class SearchScreen extends SearchDelegate {
+class ScreenSearch extends SearchDelegate {
+  // first override to clear the search text
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -14,27 +14,30 @@ class SearchScreen extends SearchDelegate {
         icon: const Icon(Icons.clear),
         onPressed: () {
           Navigator.of(context).pop();
+          // query = ''
         },
-      )
+      ),
     ];
   }
 
+  //to pop out of the search menu
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back),
       onPressed: () {
-        close(context, null);
+        close(context, null); // for closing the search page and going back
       },
     );
   }
 
+//to show query result
   @override
   Widget buildResults(BuildContext context) {
     //bool output = true;
     return ValueListenableBuilder(
       valueListenable: studentListNotifier,
-      builder: ((BuildContext context, List<RegisterModel> studentList,
+      builder: ((BuildContext context, List<StudentModel> studentList,
           Widget? child) {
         return ListView.builder(
           itemBuilder: (ctx, index) {
@@ -80,7 +83,7 @@ class SearchScreen extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: studentListNotifier,
-      builder: ((BuildContext context, List<RegisterModel> studentList,
+      builder: ((BuildContext context, List<StudentModel> studentList,
           Widget? child) {
         return ListView.builder(
           itemBuilder: (ctx, index) {
@@ -98,7 +101,7 @@ class SearchScreen extends SearchDelegate {
                                 name: data.name,
                                 age: data.age,
                                 phone: data.phone,
-                                address: data.address,
+                                address: data.adress,
                                 index: index,
                                 photo: data.photo);
                           }),

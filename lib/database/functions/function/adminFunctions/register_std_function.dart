@@ -2,17 +2,17 @@ import 'package:brototype_app/database/functions/models/adminmodel/register_mode
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
-ValueNotifier<List<RegisterModel>> studentListNotifier = ValueNotifier([]);
+ValueNotifier<List<StudentModel>> studentListNotifier = ValueNotifier([]);
 
-Future<void> addStudent(RegisterModel value) async {
-  final studentDB = await Hive.openBox<RegisterModel>("student_db");
+Future<void> addStudent(StudentModel value) async {
+  final studentDB = await Hive.openBox<StudentModel>('student_db');
 
   studentDB.put(value.id, value);
   getallstudents();
 }
 
 Future<void> getallstudents() async {
-  final studentDB = await Hive.openBox<RegisterModel>('student_db');
+  final studentDB = await Hive.openBox<StudentModel>('student_db');
   studentListNotifier.value.clear();
 
   studentListNotifier.value.addAll(studentDB.values);
@@ -21,15 +21,15 @@ Future<void> getallstudents() async {
 }
 
 Future<void> deleteStudent(int id) async {
-  final studentDB = await Hive.openBox<RegisterModel>('student_db');
+  final studentDB = await Hive.openBox<StudentModel>('student_db');
 
   await studentDB.deleteAt(id);
 
   getallstudents();
 }
 
-Future<void> updateList(int id, RegisterModel value) async {
-  final studentDB = await Hive.openBox<RegisterModel>('student_db');
+Future<void> updateList(int id, StudentModel value) async {
+  final studentDB = await Hive.openBox<StudentModel>('student_db');
   studentDB.putAt(id, value);
   getallstudents();
 }

@@ -5,17 +5,20 @@ import 'package:brototype_app/database/functions/models/adminmodel/register_mode
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class screenAdd extends StatefulWidget {
-  const screenAdd({super.key});
+class ScreenAdd extends StatefulWidget {
+  ScreenAdd({super.key});
 
   @override
-  State<screenAdd> createState() => _screenAddState();
+  State<ScreenAdd> createState() => _ScreenAddState();
 }
 
-class _screenAddState extends State<screenAdd> {
+class _ScreenAddState extends State<ScreenAdd> {
   final TextEditingController _nameController = TextEditingController();
+
   final TextEditingController _ageController = TextEditingController();
+
   final TextEditingController _phoneController = TextEditingController();
+
   final TextEditingController _addressController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
@@ -25,7 +28,7 @@ class _screenAddState extends State<screenAdd> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Add Student'),
+        title: const Text('Add Student'),
         automaticallyImplyLeading: false,
         actions: [
           Padding(
@@ -93,75 +96,84 @@ class _screenAddState extends State<screenAdd> {
                             ),
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   TextFormField(
                     controller: _nameController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Enter name',
+                      hintText: 'Enter Name',
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Name required';
+                        return ' Name is Required';
                       } else {
                         return null;
                       }
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: 20,
+                  ),
                   TextFormField(
                     maxLength: 2,
                     keyboardType: TextInputType.number,
                     controller: _ageController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Enter Age',
+                      hintText: 'Enter age',
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Age is required';
+                        return ' Age is Required';
                       } else {
                         return null;
                       }
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: 20,
+                  ),
                   TextFormField(
                     controller: _addressController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Enter Address',
+                      hintText: 'Address',
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Address is required';
+                        return 'Address Required';
                       } else {
                         return null;
                       }
                     },
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: 20,
+                  ),
                   TextFormField(
                     maxLength: 10,
                     keyboardType: TextInputType.number,
                     controller: _phoneController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Enter Phone number',
+                      hintText: 'Phone Number',
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Number is required';
+                        return 'required';
                       } else if (value.length < 10) {
-                        return 'Invalid phone number!!!';
+                        return ' Invalid phone number';
                       } else {
                         return null;
                       }
                     },
                   ),
+                  // TextFormField(
+                  //   controller: _parentDetails,
+                  // ),
                   const SizedBox(height: 10),
                   ElevatedButton(
                       onPressed: () {
@@ -173,14 +185,16 @@ class _screenAddState extends State<screenAdd> {
                               .showSnackBar(const SnackBar(
                                   backgroundColor: Colors.red,
                                   content: Text(
-                                    "Please add Profile image!!",
-                                    style: TextStyle(color: Colors.white),
+                                    'Please add profile image!',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   )));
                         } else {
-                          print("Empty Filed found");
+                          print('Empty field found');
                         }
                       },
-                      child: const Text("Add Student")),
+                      child: const Text('Add Student')),
                 ],
               ),
             ),
@@ -189,14 +203,13 @@ class _screenAddState extends State<screenAdd> {
       ),
     );
   }
-//show success messah=gr function
 
   popDialogueBox() {
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text("Success"),
+            title: const Text("Sucess"),
             titleTextStyle: const TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
             actionsOverflowButtonSpacing: 20,
@@ -215,12 +228,11 @@ class _screenAddState extends State<screenAdd> {
                   },
                   child: const Text("Add New")),
             ],
-            content: const Text("Saved Successfully"),
+            content: const Text("Saved successfully"),
           );
         });
   }
 
-//addStudentToModel
   Future<void> addStudentToModel() async {
     final _name = _nameController.text.trim();
     final _age = _ageController.text.trim();
@@ -236,25 +248,24 @@ class _screenAddState extends State<screenAdd> {
       return;
     } else {
       //reset fields
-
       _nameController.text = '';
       _ageController.text = '';
       _phoneController.text = '';
       _addressController.text = '';
       _photo = null;
       setState(() {
-        popDialogueBox(); //used this function for show succes message
+        popDialogueBox(); //to show success message
       });
     }
 
-    final studentObject = RegisterModel(
+    final studentObject = StudentModel(
         name: _name,
         age: _age,
+        adress: _address,
         phone: _phone,
-        address: _address,
         photo: _image!.path,
         id: DateTime.now().millisecond.toString());
-    print("$_name$_age$_address$_phone");
+    print("$_name $_age $_address  $_phone");
 
     addStudent(studentObject);
   }
@@ -265,9 +276,11 @@ class _screenAddState extends State<screenAdd> {
     if (photo == null) {
     } else {
       final photoTemp = File(photo.path);
-      setState(() {
-        _photo = photoTemp;
-      });
+      setState(
+        () {
+          _photo = photoTemp;
+        },
+      );
     }
   }
 }

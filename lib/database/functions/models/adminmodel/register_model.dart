@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 part 'register_model.g.dart';
 
 @HiveType(typeId: 1)
-class RegisterModel {
+class StudentModel {
   @HiveField(0)
   final String id;
 
@@ -16,17 +16,16 @@ class RegisterModel {
   final String phone;
 
   @HiveField(4)
-  final String address;
+  final String adress;
 
   @HiveField(5)
   final String photo;
 
-  RegisterModel({
-    required this.name,
-    required this.age,
-    required this.phone,
-    required this.address,
-    required this.photo,
-    required this.id,
-  });
+  StudentModel(
+      {required this.name,
+      required this.age,
+      required this.phone,
+      required this.adress,
+      required this.photo,
+      required this.id});
 }

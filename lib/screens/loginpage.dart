@@ -1,8 +1,15 @@
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:brototype_app/custom_widgets/bottomNavbar.dart';
 import 'package:brototype_app/AdminPanel/adminlogin.dart';
+import 'package:brototype_app/database/functions/function/userFunctions/signup_function.dart';
+import 'package:brototype_app/database/functions/models/signup_model.dart';
+import 'package:brototype_app/home.dart';
+import 'package:brototype_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/signupage.dart';
+import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Form(
         key: formKey,
         child: Stack(
@@ -192,13 +200,34 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> login() async {
-    if (formKey.currentState!.validate()) {
-      final email = _emailController.text;
-      final password = _passwordController.text;
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => bottomNavBar()),
-      );
+    // if (formKey.currentState!.validate()) {
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    HiveDb db = HiveDb();
+    Box userBox = await Hive.openBox(db.userBoxKey);
+
+    UserdataModal? user = await userBox.get(email);
+
+    if (user != null) {
+      if (password == user.password) {
+        Get.to(() => bottomNavBar());
+
+        final sharedprefs = await SharedPreferences.getInstance();
+        await sharedprefs.setString(email_key_Name, email);
+
+        await sharedprefs.setBool(Save_key_Name, true);
+      }
+    } else {
+      print("Existing emails");
+      print(userBox.keys);
+      Get.snackbar('user not Exists', '');
     }
+
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => bottomNavBar()),
+    // );
+    // }
   }
 }

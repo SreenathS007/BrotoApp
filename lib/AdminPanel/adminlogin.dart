@@ -40,7 +40,7 @@ class _ScreenLoginState extends State<AdminLogin> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 10),
-                Text(
+                const Text(
                   'Admin',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
@@ -103,7 +103,7 @@ class _ScreenLoginState extends State<AdminLogin> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(

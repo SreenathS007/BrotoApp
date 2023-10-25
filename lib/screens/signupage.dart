@@ -1,6 +1,12 @@
 import 'package:brototype_app/custom_widgets/bottomNavbar.dart';
+import 'package:brototype_app/database/functions/function/userFunctions/signup_function.dart';
+import 'package:brototype_app/database/functions/models/signup_model.dart';
+import 'package:brototype_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/loginpage.dart';
+import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -230,15 +236,47 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Future<void> signup() async {
-    if (formKey.currentState!.validate()) {
-      final userName = _usernameController.text;
-      final Email = _emailController.text;
-      final Password = _passwordController.text;
-      final CnfmPassword = _cnfmpasswordController.text;
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => bottomNavBar()),
-      );
+    // if (formKey.currentState!.validate()) {
+    final userName = _usernameController.text;
+    final Email = _emailController.text;
+    final Password = _passwordController.text;
+    final CnfmPassword = _cnfmpasswordController.text;
+
+//adding to database
+    HiveDb db = HiveDb();
+    Box userBox = await Hive.openBox(db.userBoxKey);
+
+    UserdataModal? user = await userBox.get(Email);
+
+    if (userName.isNotEmpty &&
+        Email.isNotEmpty &&
+        Password.isNotEmpty &&
+        CnfmPassword.isNotEmpty) {
+      if (user != null) {
+        Get.snackbar('user exists', '');
+      } else {
+        UserdataModal model = UserdataModal(
+            username: userName,
+            email: Email,
+            password: Password,
+            cnfmpassword: CnfmPassword);
+        userBox.put(Email, model);
+
+        final sharedprefs = await SharedPreferences.getInstance();
+        await sharedprefs.setString(email_key_Name, model.email);
+        await sharedprefs.setBool(Save_key_Name, true);
+
+        /////////
+        await userBox.close();
+        Get.to(() => bottomNavBar());
+      }
+    } else {
+      Get.snackbar("fill the Fields", '');
+      //}
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => bottomNavBar()),
+      // );
     }
   }
 }

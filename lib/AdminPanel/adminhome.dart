@@ -1,3 +1,4 @@
+import 'package:brototype_app/AdminPanel/codingvideo/videos_add.dart';
 import 'package:brototype_app/AdminPanel/studentregister/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -109,13 +110,13 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     'coding videos',
                     CupertinoIcons.play_rectangle,
                     Colors.deepOrange,
-                    // onTap: () {
-                    //   Navigator.of(context).push(
-                    //     MaterialPageRoute(
-                    //       builder: (context) => null(),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => addVideos(),
+                        ),
+                      );
+                    },
                   ),
                   itemDashboard(
                     'Hub Details',
