@@ -7,10 +7,10 @@ class VideoModel {
   final String id;
 
   @HiveField(1)
-  late String title;
+  final String title;
 
   @HiveField(2)
-  late String link;
+  final String link;
 
   VideoModel({
     required this.title,

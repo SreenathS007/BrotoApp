@@ -1,3 +1,4 @@
+import 'package:brototype_app/AdminPanel/codingvideo/video_list.dart';
 import 'package:brototype_app/AdminPanel/codingvideo/videos_add.dart';
 import 'package:brototype_app/AdminPanel/studentregister/register.dart';
 import 'package:flutter/cupertino.dart';
@@ -113,7 +114,7 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => addVideos(),
+                          builder: (context) => ShowVedioDetails(),
                         ),
                       );
                     },

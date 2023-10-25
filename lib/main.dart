@@ -4,7 +4,6 @@ import 'package:brototype_app/database/functions/models/adminmodel/register_mode
 import 'package:brototype_app/database/functions/models/adminmodel/video_add_model.dart';
 import 'package:brototype_app/database/functions/models/signup_model.dart';
 import 'package:brototype_app/screens/splash.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +52,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      // theme: ThemeData(
+      //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
+      //     useMaterial3: true),
       home: ScreenSplash(),
     );
   }
