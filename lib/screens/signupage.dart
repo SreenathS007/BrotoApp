@@ -125,8 +125,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         obscureText: _isObscure,
                         controller: _passwordController,
                         decoration: InputDecoration(
-                          hintText: 'Password',
-                          label: Text('Password'),
+                          hintText: 'Phone ',
+                          label: Text('phone Number'),
                           suffixIcon: IconButton(
                             icon: _isObscure
                                 ? Icon(Icons.visibility_off)
@@ -151,8 +151,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         obscureText: _isCnfObscure,
                         controller: _cnfmpasswordController,
                         decoration: InputDecoration(
-                          hintText: 'Confirm Password',
-                          label: Text('Confirm Password'),
+                          hintText: ' Password',
+                          label: Text('Password'),
                           suffixIcon: IconButton(
                             icon: _isCnfObscure
                                 ? Icon(Icons.visibility_off)
@@ -258,13 +258,13 @@ class _SignUpPageState extends State<SignUpPage> {
         UserdataModal model = UserdataModal(
             username: userName,
             email: Email,
-            password: Password,
+            phone: Password,
             cnfmpassword: CnfmPassword);
         userBox.put(Email, model);
 
         final sharedprefs = await SharedPreferences.getInstance();
-        await sharedprefs.setString(email_key_Name, model.email);
-        await sharedprefs.setBool(Save_key_Name, true);
+        await sharedprefs.setString(emailkeyName, model.email);
+        await sharedprefs.setBool(savekeyName, true);
 
         /////////
         await userBox.close();

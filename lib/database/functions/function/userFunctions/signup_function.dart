@@ -16,7 +16,7 @@ getUserImg() async {
   HiveDb db = HiveDb();
   final sharedPrefs = await SharedPreferences.getInstance();
   Box userBox = await Hive.openBox(db.userBoxKey);
-  String? email = sharedPrefs.getString(email_key_Name);
+  String? email = sharedPrefs.getString(emailkeyName);
 
   if (email != null) {
     print("email Not null//////");

@@ -186,7 +186,7 @@ class _UpdateprofileState extends State<Updateprofile> {
                     HiveDb db = HiveDb();
                     Box userBox = await Hive.openBox(db.userBoxKey);
                     final sharedPrefs = await SharedPreferences.getInstance();
-                    String? email = sharedPrefs.getString(email_key_Name);
+                    String? email = sharedPrefs.getString(emailkeyName);
                     UserdataModal user = await userBox.get(email);
 
                     // _nameController.text = user.name;
@@ -207,14 +207,14 @@ class _UpdateprofileState extends State<Updateprofile> {
                     UserdataModal newModel = UserdataModal(
                       username: user_name,
                       email: user_email,
-                      password: user.password,
+                      phone: user.phone,
                       cnfmpassword: user.cnfmpassword,
                       imgPath: user_imgPath,
                     );
 
                     await userBox.delete(email);
                     await userBox.put(user_email, newModel);
-                    await sharedPrefs.setString(email_key_Name, user_email);
+                    await sharedPrefs.setString(emailkeyName, user_email);
 
                     _emailController.clear();
                     _nameController.clear();
@@ -233,12 +233,12 @@ class _UpdateprofileState extends State<Updateprofile> {
     HiveDb db = HiveDb();
     Box userBox = await Hive.openBox(db.userBoxKey);
     final sharedPrefs = await SharedPreferences.getInstance();
-    String? email = sharedPrefs.getString(email_key_Name);
+    String? email = sharedPrefs.getString(emailkeyName);
     UserdataModal user = await userBox.get(email);
 
     _nameController.text = user.username;
     _emailController.text = user.email;
-    _ageController.text = user.password;
+    _ageController.text = user.phone;
 
     user_name = _nameController.text;
     user_email = _emailController.text;

@@ -210,13 +210,15 @@ class _LoginScreenState extends State<LoginScreen> {
     UserdataModal? user = await userBox.get(email);
 
     if (user != null) {
-      if (password == user.password) {
+      print('logginn');
+      if (password == user.cnfmpassword) {
+        print("true");
         Get.to(() => bottomNavBar());
 
         final sharedprefs = await SharedPreferences.getInstance();
-        await sharedprefs.setString(email_key_Name, email);
+        await sharedprefs.setString(emailkeyName, email);
 
-        await sharedprefs.setBool(Save_key_Name, true);
+        await sharedprefs.setBool(savekeyName, true);
       }
     } else {
       print("Existing emails");

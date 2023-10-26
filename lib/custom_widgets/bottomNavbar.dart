@@ -32,12 +32,12 @@ class _bottomNavBarState extends State<bottomNavBar> {
     HiveDb db = HiveDb();
     Box userBox = await Hive.openBox(db.userBoxKey);
     final sharedPrefs = await SharedPreferences.getInstance();
-    String email = sharedPrefs.getString(email_key_Name)!;
+    String? email = sharedPrefs.getString(emailkeyName);
 
     UserdataModal user = await userBox.get(email);
     user_name = user.username;
     user_email = user.email;
-    user_password = user.password;
+    user_password = user.phone;
   }
 
   @override

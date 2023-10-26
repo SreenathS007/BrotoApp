@@ -83,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Container(
                       height: 50,
-                      width: 320,
+                      width: 300,
                       decoration: BoxDecoration(
                           color: Colors.blue.shade50,
                           borderRadius: BorderRadius.circular(20)),
@@ -97,6 +97,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
+              const SizedBox(height: 50),
+              const Padding(
+                padding: EdgeInsets.only(right: 230),
+                child: Text(
+                  'Email',
+                  style: TextStyle(fontWeight: FontWeight.w800),
+                ),
+              ),
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(left: 25),
@@ -105,16 +113,17 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Container(
                       height: 50,
-                      width: 320,
+                      width: 300,
                       decoration: BoxDecoration(
                           color: Colors.blue.shade50,
                           borderRadius: BorderRadius.circular(20)),
                       child: Center(
-                          child: Text(
-                        user_email,
-                        style: const TextStyle(fontWeight: FontWeight.w800),
-                      )),
-                    )
+                        child: Text(
+                          user_email,
+                          style: const TextStyle(fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -134,7 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Container(
                       height: 50,
-                      width: 320,
+                      width: 300,
                       decoration: BoxDecoration(
                           color: Colors.blue.shade50,
                           borderRadius: BorderRadius.circular(20)),

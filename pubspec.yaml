@@ -98,7 +98,10 @@ flutter:
      - assets\images\keepNotes.png    
      - assets\images\FAQsIcon.jpg  
      - assets/images/wtsppBGnd.jpg
-
+     - assets\images\CalicutHub.jpg
+     - assets\images\KochiHub.png
+     - assets\images\TvmHub.jpg
+     - assets\images\BanglrHub.jpg
 #coding challenge images
      - assets/images/cdg1.jpg
      - assets/images/cdg2.jpg

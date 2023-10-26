@@ -86,7 +86,7 @@ class HubCard extends StatelessWidget {
   final List<Color> colors;
   final VoidCallback onTap;
 
-  HubCard({
+  const HubCard({
     required this.hubName,
     required this.colors,
     required this.onTap,

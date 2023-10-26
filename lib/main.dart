@@ -9,8 +9,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-const Save_key_Name = 'UserLoggedIn';
-const email_key_Name = 'userEmailKey';
+const savekeyName = 'UserLoggedIn';
+const emailkeyName = 'userEmailKey';
 ValueNotifier<String> imgPath = ValueNotifier('');
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,12 +36,13 @@ Future<void> main() async {
   Box userBox = await Hive.openBox(db.userBoxKey);
 
   final sharedPrefs = await SharedPreferences.getInstance();
-  String email = sharedPrefs.getString(email_key_Name)!;
+
+  String? email = sharedPrefs.getString(emailkeyName);
 
   UserdataModal user = await userBox.get(email);
   user_name = user.username;
   user_email = user.email;
-  user_password = user.password;
+  user_password = user.phone;
 
   runApp(const MyApp());
 }
@@ -50,11 +51,11 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
-      //     useMaterial3: true),
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
+          useMaterial3: true),
       home: ScreenSplash(),
     );
   }

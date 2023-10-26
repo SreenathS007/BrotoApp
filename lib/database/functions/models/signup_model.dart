@@ -8,7 +8,7 @@ class UserdataModal {
   @HiveField(1)
   String email;
   @HiveField(2)
-  String password;
+  String phone;
   @HiveField(3)
   String cnfmpassword;
   @HiveField(4)
@@ -16,7 +16,7 @@ class UserdataModal {
   UserdataModal({
     required this.username,
     required this.email,
-    required this.password,
+    required this.phone,
     required this.cnfmpassword,
     this.imgPath,
   });

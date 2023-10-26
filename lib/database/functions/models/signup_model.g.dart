@@ -19,23 +19,26 @@ class UserdataModalAdapter extends TypeAdapter<UserdataModal> {
     return UserdataModal(
       username: fields[0] as String,
       email: fields[1] as String,
-      password: fields[2] as String,
+      phone: fields[2] as String,
       cnfmpassword: fields[3] as String,
+      imgPath: fields[4] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserdataModal obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.username)
       ..writeByte(1)
       ..write(obj.email)
       ..writeByte(2)
-      ..write(obj.password)
+      ..write(obj.phone)
       ..writeByte(3)
-      ..write(obj.cnfmpassword);
+      ..write(obj.cnfmpassword)
+      ..writeByte(4)
+      ..write(obj.imgPath);
   }
 
   @override
