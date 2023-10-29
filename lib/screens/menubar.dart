@@ -1,4 +1,5 @@
 import 'package:brototype_app/screens/faqs.dart';
+import 'package:brototype_app/screens/updateprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/loginpage.dart';
 import 'package:brototype_app/screens/profile.dart';
@@ -24,7 +25,7 @@ class NavBar extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.black,
               image: DecorationImage(
                 image: AssetImage(
@@ -35,17 +36,17 @@ class NavBar extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.account_box),
+            leading: const Icon(Icons.account_box),
             title: Text('Profile Settings'),
-            // onTap: () => Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => ProfilePage(),
-            //   ),
-            // ),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Updateprofile(),
+              ),
+            ),
           ),
           ListTile(
-            leading: Icon(Icons.description),
+            leading: const Icon(Icons.description),
             title: Text('FAQs'),
             onTap: () => Navigator.push(
               context,
@@ -54,11 +55,11 @@ class NavBar extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => null,
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.settings),
+          //   title: Text('Settings'),
+          //   onTap: () => null,
+          // ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('LogOut'),

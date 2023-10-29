@@ -18,14 +18,49 @@ class _ShowVedioDetailsState extends State<ShowVedioDetails> {
     updateVideoListNotifier();
   }
 
+  Future<void> _showConfirmationDialog(String videoId) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Are you sure you want to delete?'),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('This will delete from your device!!'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Yes'),
+              onPressed: () {
+                deleteVideo(videoId);
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('No'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text("Show Details Screen"),
+          backgroundColor: Colors.black,
+          title: const Text("Added Videos "),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          label: Text('Add Videos'),
+          label: const Text('Add Videos'),
           onPressed: () {
             showDialog(
               context: context,
@@ -43,14 +78,18 @@ class _ShowVedioDetailsState extends State<ShowVedioDetails> {
               itemCount: videoList.length,
               itemBuilder: (context, index) {
                 return Card(
+                  color: Colors.grey[50],
                   child: ListTile(
                     title: Text(videoList[index].title),
                     subtitle: Text(videoList[index].link),
                     trailing: IconButton(
                         onPressed: () {
-                          deleteVideo(videoList[index].id);
+                          _showConfirmationDialog(videoList[index].id);
                         },
-                        icon: Icon(Icons.delete)),
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        )),
                     onTap: () {
                       _navigateToVideoPlayer(
                           videoList[index].link, videoList[index].title);

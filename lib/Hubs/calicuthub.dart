@@ -8,7 +8,7 @@ class CalicutHub extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Calucut Hub',
+          'Calicut Hub',
         ),
         backgroundColor: Colors.black,
       ),

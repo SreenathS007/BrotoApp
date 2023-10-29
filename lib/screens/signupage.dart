@@ -122,17 +122,18 @@ class _SignUpPageState extends State<SignUpPage> {
                     Padding(
                       padding: EdgeInsets.all(25.0),
                       child: TextFormField(
-                        obscureText: _isObscure,
+                        maxLength: 10,
+                        // obscureText: _isObscure,
                         controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: 'Phone ',
                           label: Text('phone Number'),
-                          suffixIcon: IconButton(
-                            icon: _isObscure
-                                ? Icon(Icons.visibility_off)
-                                : Icon(Icons.visibility),
-                            onPressed: _togglePasswordVisibility,
-                          ),
+                          // suffixIcon: IconButton(
+                          //   icon: _isObscure
+                          //       ? Icon(Icons.visibility_off)
+                          //       : Icon(Icons.visibility),
+                          //   onPressed: _togglePasswordVisibility,
+                          // ),
                           fillColor: Color(0xffD8D8DD),
                           filled: true,
                         ),

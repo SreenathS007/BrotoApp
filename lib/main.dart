@@ -53,9 +53,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
-          useMaterial3: true),
+      // theme: ThemeData(
+      //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+      //     useMaterial3: true),
       home: ScreenSplash(),
     );
   }

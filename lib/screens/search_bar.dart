@@ -59,72 +59,69 @@ class _search_BarState extends State<search_Bar> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF1f1545),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF1f1545),
-        elevation: 0.0,
-        title: Text('Search'),
-      ),
       body: Padding(
         padding: EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Search for a Video',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Search for a Video',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            TextField(
-              onChanged: (value) => updateList(value),
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xff302360),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide.none,
-                  ),
-                  hintText: "eg:100 coding Challenge",
-                  prefixIcon: Icon(Icons.search),
-                  prefixIconColor: Colors.purple.shade900),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Expanded(
-              child: display_List.length == 0
-                  ? Center(
-                      child: Text(
-                        "No Result Found",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22.2,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  : ListView.builder(
-                      itemCount: display_List.length,
-                      itemBuilder: (context, index) => ListTile(
-                        contentPadding: EdgeInsets.all(8.0),
-                        title: Text(
-                          display_List[index].video_name!,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        leading: Image.asset(profileImage[index]),
-                      ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextField(
+                onChanged: (value) => updateList(value),
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xff302360),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none,
                     ),
-            ),
-          ],
+                    hintText: "eg:100 coding Challenge",
+                    prefixIcon: Icon(Icons.search),
+                    prefixIconColor: Colors.purple.shade900),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Expanded(
+                child: display_List.length == 0
+                    ? const Center(
+                        child: Text(
+                          "No Result Found",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22.2,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: display_List.length,
+                        itemBuilder: (context, index) => ListTile(
+                          contentPadding: const EdgeInsets.all(8.0),
+                          title: Text(
+                            display_List[index].video_name!,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          leading: Image.asset(profileImage[index]),
+                        ),
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );
