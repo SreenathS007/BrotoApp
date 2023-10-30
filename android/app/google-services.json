@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1009942221431:android:87928b175f6f362ee0ac72",
+        "mobilesdk_app_id": "1:1009942221431:android:1cf55f99480436dae0ac72",
         "android_client_info": {
-          "package_name": "com.example.brototype_app"
+          "package_name":"com.example.brototype_app"
         }
       },
       "oauth_client": [],

@@ -82,10 +82,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     const SizedBox(height: 30),
                     Padding(
-                      padding: EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.all(25.0),
                       child: TextFormField(
                         controller: _usernameController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'User Name',
                           label: Text('User Name'),
                           fillColor: Color(0xffD8D8DD),
@@ -101,10 +101,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.all(25.0),
                       child: TextFormField(
                         controller: _emailController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Email Adress',
                           label: Text('Email Adress'),
                           fillColor: Color(0xffD8D8DD),
@@ -125,15 +125,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         maxLength: 10,
                         // obscureText: _isObscure,
                         controller: _passwordController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Phone ',
                           label: Text('phone Number'),
-                          // suffixIcon: IconButton(
-                          //   icon: _isObscure
-                          //       ? Icon(Icons.visibility_off)
-                          //       : Icon(Icons.visibility),
-                          //   onPressed: _togglePasswordVisibility,
-                          // ),
                           fillColor: Color(0xffD8D8DD),
                           filled: true,
                         ),
@@ -147,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.all(25.0),
                       child: TextFormField(
                         obscureText: _isCnfObscure,
                         controller: _cnfmpasswordController,

@@ -6,8 +6,6 @@ import 'package:brototype_app/screens/fumigation.dart';
 import 'package:brototype_app/screens/aboutpage.dart';
 import 'package:brototype_app/screens/stories.dart';
 import 'package:brototype_app/screens/events.dart';
-import 'package:brototype_app/screens/search_bar.dart';
-import 'package:brototype_app/screens/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
+  // int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: GridView(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
                 children: [
                   Container(
                     decoration: BoxDecoration(
@@ -71,9 +74,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 80,
                           height: 90,
                         ),
-                        Text(
+                        const Text(
                           'Coding Challenges',
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
@@ -101,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 80,
                             height: 80,
                           ),
-                          Text(
+                          const Text(
                             'Our Hubs',
                             style: TextStyle(
                                 color: Colors.white,
@@ -132,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 70,
                             height: 70,
                           ),
-                          Text(
+                          const Text(
                             'Fumigation',
                             style: TextStyle(
                                 color: Colors.white,
@@ -163,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 70,
                             height: 70,
                           ),
-                          Text(
+                          const Text(
                             'Upcoming Events',
                             style: TextStyle(
                                 color: Colors.white,
@@ -194,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 70,
                             height: 70,
                           ),
-                          Text(
+                          const Text(
                             'Success Stories',
                             style: TextStyle(
                                 color: Colors.white,
@@ -225,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 70,
                             height: 70,
                           ),
-                          Text(
+                          const Text(
                             'Student Notes',
                             style: TextStyle(
                                 color: Colors.white,
@@ -236,12 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                ],
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                )),
+                ]),
           ),
         ),
       ),

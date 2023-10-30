@@ -40,11 +40,11 @@ class FAQsPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Brototype FAQS',
                         style: TextStyle(fontSize: 19),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         'online',
                         style: TextStyle(
@@ -63,7 +63,7 @@ class FAQsPage extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
                 'assets/images/wtsppBGnd.jpg',
@@ -97,17 +97,17 @@ class ChatSample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(right: 80),
+          padding: const EdgeInsets.only(right: 80),
           child: Container(
             child: ClipPath(
               clipper: UpperNipMessageClipperTwo(MessageType.receive),
               child: Container(
                 padding: const EdgeInsets.only(
                     top: 10, bottom: 10, left: 25, right: 10),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
-                child: Text(
+                child: const Text(
                   "Who is Brocamp for?",
                   style: TextStyle(fontSize: 17),
                 ),
@@ -117,17 +117,17 @@ class ChatSample extends StatelessWidget {
         ),
         Container(
           alignment: Alignment.centerRight,
-          margin: EdgeInsets.only(top: 20, left: 80, bottom: 15),
+          margin: const EdgeInsets.only(top: 20, left: 80, bottom: 15),
           child: Container(
             child: ClipPath(
               clipper: UpperNipMessageClipperTwo(MessageType.send),
               child: Container(
                 padding: const EdgeInsets.only(
                     top: 10, bottom: 10, left: 10, right: 20),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFE4FDCA),
                 ),
-                child: Text(
+                child: const Text(
                   "Anyone who wants to learn Computer programming and build a good career as a software Engineer",
                   style: TextStyle(fontSize: 17),
                 ),

@@ -3,7 +3,9 @@ import 'package:brototype_app/database/functions/function/userFunctions/signup_f
 import 'package:brototype_app/database/functions/models/adminmodel/register_model.dart';
 import 'package:brototype_app/database/functions/models/adminmodel/video_add_model.dart';
 import 'package:brototype_app/database/functions/models/signup_model.dart';
+import 'package:brototype_app/firebase_options.dart';
 import 'package:brototype_app/screens/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +16,10 @@ const emailkeyName = 'userEmailKey';
 ValueNotifier<String> imgPath = ValueNotifier('');
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Hive.initFlutter();
-  // await Firebase.initializeApp();
 
   //student register Adapter
 
@@ -53,9 +57,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-      //     useMaterial3: true),
       home: ScreenSplash(),
     );
   }
