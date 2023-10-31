@@ -16,9 +16,7 @@ const emailkeyName = 'userEmailKey';
 ValueNotifier<String> imgPath = ValueNotifier('');
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
 
   //student register Adapter
@@ -42,11 +40,22 @@ Future<void> main() async {
   final sharedPrefs = await SharedPreferences.getInstance();
 
   String? email = sharedPrefs.getString(emailkeyName);
+  UserdataModal? user;
+  if (email != null) {
+    user = userBox.get(email);
+  }
 
-  UserdataModal user = await userBox.get(email);
-  user_name = user.username;
-  user_email = user.email;
-  user_password = user.phone;
+  if (user != null) {
+    user_name = user.username;
+    user_email = user.email;
+    user_password = user.phone;
+  } else {
+    // Handle the null or non-existent user case appropriately
+    // For example, you can assign default values or handle the situation in a way that is suitable for your application logic.
+    user_name = 'Default Username';
+    user_email = 'Default Email';
+    user_password = 'Default Password';
+  }
 
   runApp(const MyApp());
 }
@@ -55,7 +64,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: ScreenSplash(),
     );
