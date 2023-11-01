@@ -1,9 +1,9 @@
+import 'package:brototype_app/screens/studentnotes/note_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/menubar.dart';
 import 'package:brototype_app/screens/codingchallenge.dart';
 import 'package:brototype_app/screens/hubs.dart';
 import 'package:brototype_app/screens/fumigation.dart';
-import 'package:brototype_app/screens/aboutpage.dart';
 import 'package:brototype_app/screens/stories.dart';
 import 'package:brototype_app/screens/events.dart';
 
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Aboutpage(),
+                        builder: (context) => NoteHomePage(),
                       ),
                     ),
                     child: Container(

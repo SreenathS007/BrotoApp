@@ -3,6 +3,7 @@ import 'package:brototype_app/database/functions/function/userFunctions/signup_f
 import 'package:brototype_app/database/functions/models/adminmodel/register_model.dart';
 import 'package:brototype_app/database/functions/models/adminmodel/video_add_model.dart';
 import 'package:brototype_app/database/functions/models/signup_model.dart';
+import 'package:brototype_app/database/functions/models/usermodels/notes_model.dart';
 import 'package:brototype_app/firebase_options.dart';
 import 'package:brototype_app/screens/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,17 +19,21 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
-
+  final Box<NoteModel> notesBox = await Hive.openBox<NoteModel>('notes');
   //student register Adapter
-
   if (!Hive.isAdapterRegistered(StudentModelAdapter().typeId)) {
     Hive.registerAdapter(StudentModelAdapter());
   }
+  //video adding adapter
   if (!Hive.isAdapterRegistered(VideoModelAdapter().typeId)) {
     Hive.registerAdapter(VideoModelAdapter());
   }
 
-  //signup user model
+  //studentNotes adapter
+  if (!Hive.isAdapterRegistered(NoteModelAdapter().typeId)) {
+    Hive.registerAdapter(NoteModelAdapter());
+  }
+  //signup user model adapter
   if (!Hive.isAdapterRegistered(UserdataModalAdapter().typeId)) {
     Hive.registerAdapter(UserdataModalAdapter());
   }

@@ -1,42 +1,40 @@
-import 'package:custom_clippers/custom_clippers.dart';
 import 'package:flutter/material.dart';
+import 'package:custom_clippers/custom_clippers.dart';
 
 class FAQsPage extends StatelessWidget {
-  const FAQsPage({super.key});
+  const FAQsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
+        preferredSize: const Size.fromHeight(65),
         child: AppBar(
-          backgroundColor: Color.fromARGB(255, 72, 119, 75),
+          backgroundColor: const Color.fromARGB(255, 72, 119, 75),
           elevation: 0,
           leading: Padding(
-            padding: EdgeInsets.only(top: 10, left: 5),
+            padding: const EdgeInsets.only(top: 10, left: 5),
             child: InkWell(
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back),
+              child: const Icon(Icons.arrow_back),
             ),
           ),
           leadingWidth: 20,
           title: Padding(
-            padding: EdgeInsets.only(top: 6),
+            padding: const EdgeInsets.only(top: 6),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Image.asset(
-                    'assets/images/FAQsIcon.jpg',
-                    height: 45,
-                    width: 45,
+                const ClipOval(
+                  child: CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage('assets/images/FAQsIcon.jpg'),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -65,22 +63,18 @@ class FAQsPage extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(
-                'assets/images/wtsppBGnd.jpg',
-              ),
-              fit: BoxFit.cover),
+            image: AssetImage('assets/images/wtsppBGnd.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(top: 10, left: 8, right: 8, bottom: 80),
+            padding:
+                const EdgeInsets.only(top: 10, left: 8, right: 8, bottom: 80),
             child: Column(
               children: [
                 ChatSample(),
-                Container(
-                  width: 300,
-                  margin: EdgeInsets.only(bottom: 80),
-                  padding: EdgeInsets.all(8),
-                ),
+                // Additional ChatSamples can be added here.
               ],
             ),
           ),
@@ -93,49 +87,73 @@ class FAQsPage extends StatelessWidget {
 class ChatSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final List<String> dummyMessages = [
+      // Add 10 more dummy messages here
+      "Who is Brocamp for?",
+      "Anyone who wants to learn Computer Programming and build a good career as a Software Engineer😀. ",
+      "Do I need any prior knowledge/ experience in computer programming to join Brocamp? ",
+      "No, you don’t require any prior knowledge / experience in computer programming😀.",
+      "Do I need a degree to join Brocamp?",
+      "No, you don’t need any degree or educational qualifications😀.",
+      "What are the eligibility criteria to join Brocamp?",
+      "Applicants should have basic mathematical skills such as addition, subtraction,multiplication and division.➕➖➗✖",
+      "Can I learn a specific domain like cybersecurity, data science, AI/ML etc., at Brocamp? ",
+      "Yes, you can choose any domain as you wish🙂",
+      "What are the admission procedures of Brocamp? ",
+      "Submit an online application on this website.📧",
+      "How do I prepare for the Brocamp interview?",
+      "Brocamp interview consists of very basic programming questions and few general questions about yourself",
+       "Can I apply again if I failed the interview?",
+        "Yes, you can apply till you get qualified😀.",
+       
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 80),
-          child: Container(
-            child: ClipPath(
-              clipper: UpperNipMessageClipperTwo(MessageType.receive),
-              child: Container(
-                padding: const EdgeInsets.only(
-                    top: 10, bottom: 10, left: 25, right: 10),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: const Text(
-                  "Who is Brocamp for?",
-                  style: TextStyle(fontSize: 17),
-                ),
-              ),
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.centerRight,
-          margin: const EdgeInsets.only(top: 20, left: 80, bottom: 15),
-          child: Container(
-            child: ClipPath(
-              clipper: UpperNipMessageClipperTwo(MessageType.send),
-              child: Container(
-                padding: const EdgeInsets.only(
-                    top: 10, bottom: 10, left: 10, right: 20),
-                decoration: const BoxDecoration(
-                  color: Color(0xFFE4FDCA),
-                ),
-                child: const Text(
-                  "Anyone who wants to learn Computer programming and build a good career as a software Engineer",
-                  style: TextStyle(fontSize: 17),
+      children: List.generate(dummyMessages.length, (index) {
+        if (index % 2 != 0) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 80),
+            child: Container(
+              child: ClipPath(
+                clipper: UpperNipMessageClipperTwo(MessageType.receive),
+                child: Container(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 25, right: 10),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Text(
+                    dummyMessages[index],
+                    style: const TextStyle(fontSize: 17),
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-      ],
+          );
+        } else {
+          return Container(
+            alignment: Alignment.centerRight,
+            margin: const EdgeInsets.only(top: 20, left: 80, bottom: 15),
+            child: Container(
+              child: ClipPath(
+                clipper: UpperNipMessageClipperTwo(MessageType.send),
+                child: Container(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 10, right: 20),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFE4FDCA),
+                  ),
+                  child: Text(
+                    dummyMessages[index],
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+      }),
     );
   }
 }

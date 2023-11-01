@@ -2,8 +2,6 @@ import 'package:brototype_app/AdminPanel/codingvideo/play_video_screen.dart';
 import 'package:brototype_app/database/functions/function/adminFunctions/videoAdd_function.dart';
 import 'package:brototype_app/database/functions/models/adminmodel/video_add_model.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:video_player/video_player.dart';
 
 List<String> imagePaths = [
   'assets/images/cdg1.jpg',
