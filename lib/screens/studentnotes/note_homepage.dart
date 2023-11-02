@@ -15,7 +15,6 @@ class _NoteHomeState extends State<NoteHomePage> {
 
   late List<NoteModel> _notes = [];
   int existingNotesIndex = -1;
-
   TextEditingController _titleController = TextEditingController();
   TextEditingController _descriptionController = TextEditingController();
   TextEditingController _dateController = TextEditingController();
@@ -25,8 +24,11 @@ class _NoteHomeState extends State<NoteHomePage> {
   List<Color> colorOptions = [
     Colors.grey,
     Color.fromARGB(255, 185, 185, 97),
-    Color.fromARGB(255, 209, 183, 176)
+    Color.fromARGB(255, 209, 183, 176),
+    Colors.blue,
+    Colors.red,
   ];
+
   @override
   void initState() {
     super.initState();
@@ -53,13 +55,13 @@ class _NoteHomeState extends State<NoteHomePage> {
         title: RichText(
             text: TextSpan(children: [
           TextSpan(
-              text: "Note",
+              text: "My",
               style: GoogleFonts.poppins(
                   color: Colors.black,
                   fontSize: 24,
                   fontWeight: FontWeight.bold)),
           TextSpan(
-              text: " Book",
+              text: " Notes",
               style: GoogleFonts.poppins(
                   color: Colors.grey,
                   fontSize: 24,
@@ -67,48 +69,44 @@ class _NoteHomeState extends State<NoteHomePage> {
         ])),
         backgroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        child: _notes.isEmpty
-            ? Center(
-                child: Text('No notes yet. Add one!',
-                    style: GoogleFonts.poppins(
-                        color: Colors.grey,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400)),
-              )
-            : ListView.builder(
-                shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
-                itemCount: _notes.length,
-                itemBuilder: (context, index) {
-                  final dateFormatter = DateFormat('dd-MM-yyyy');
-                  final note = _notes[index];
-                  final date = dateFormatter.format(note.date.toLocal());
-                  return NoteCard(
-                    onEditPressed: () {
-                      existingNotesIndex = index;
-                      _addOrEditNote(context, existingNote: note);
-                    },
-                    onDeletePressed: () async {
-                      await _noteController.deleteNote(index);
-                      _loadNotes();
-                    },
-                    description: note.description,
-                    title: note.title,
-                    date: date,
-                    color: note.color,
-                    onRightslide: (p0) async {
-                      await _noteController.deleteNote(index);
-                      _loadNotes();
-                    },
-                    onLeftslide: (p0) {
-                      existingNotesIndex = index;
-                      _addOrEditNote(context, existingNote: note);
-                    },
-                  );
-                },
-              ),
-      ),
+      body: _notes.isEmpty
+          ? Center(
+              child: Text('No notes yet. Add one!',
+                  style: GoogleFonts.poppins(
+                      color: Colors.grey,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400)),
+            )
+          : ListView.builder(
+              itemCount: _notes.length,
+              itemBuilder: (context, index) {
+                final dateFormatter = DateFormat('dd-MM-yyyy');
+                final note = _notes[index];
+                final date = dateFormatter.format(note.date.toLocal());
+                return NoteCard(
+                  onEditPressed: () {
+                    existingNotesIndex = index;
+                    _addOrEditNote(context, existingNote: note);
+                  },
+                  onDeletePressed: () async {
+                    await _noteController.deleteNote(index);
+                    _loadNotes();
+                  },
+                  description: note.description,
+                  title: note.title,
+                  date: date,
+                  color: note.color,
+                  onRightslide: (p0) async {
+                    await _noteController.deleteNote(index);
+                    _loadNotes();
+                  },
+                  onLeftslide: (p0) {
+                    existingNotesIndex = index;
+                    _addOrEditNote(context, existingNote: note);
+                  },
+                );
+              },
+            ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
         onPressed: () {
@@ -141,7 +139,7 @@ class _NoteHomeState extends State<NoteHomePage> {
         isEditing ? colorOptions.indexOf(selectedColor) : -1;
 
     await showModalBottomSheet(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       context: context,
@@ -161,7 +159,7 @@ class _NoteHomeState extends State<NoteHomePage> {
                   Center(
                     child: Text(
                       isEditing ? 'Edit Note' : 'Add a New Note',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -205,7 +203,7 @@ class _NoteHomeState extends State<NoteHomePage> {
                     },
                     child: AbsorbPointer(
                       child: TextField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Date (dd-MM-yyyy)'),
                         controller: _dateController,
@@ -267,18 +265,19 @@ class _NoteHomeState extends State<NoteHomePage> {
                             Navigator.of(context).pop();
                           } else {
                             Navigator.of(context).pop();
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(30),
-                                        topRight: Radius.circular(30))),
-                                padding: EdgeInsets.all(20),
-                                backgroundColor: Colors.grey,
-                                content: Center(
-                                    child: Text(
-                                  "Please add full details",
-                                  style: TextStyle(fontSize: 18),
-                                ))));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(30),
+                                            topRight: Radius.circular(30))),
+                                    padding: EdgeInsets.all(20),
+                                    backgroundColor: Colors.grey,
+                                    content: Center(
+                                        child: Text(
+                                      "Please add full details",
+                                      style: TextStyle(fontSize: 18),
+                                    ))));
                           }
                         },
                         child: Text(isEditing ? 'Save' : 'Add'),

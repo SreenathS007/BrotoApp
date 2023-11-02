@@ -37,7 +37,7 @@ Future<void> main() async {
   if (!Hive.isAdapterRegistered(UserdataModalAdapter().typeId)) {
     Hive.registerAdapter(UserdataModalAdapter());
   }
-
+//studentnotes box opened here0
   Box<NoteModel> _notesBox = await Hive.openBox<NoteModel>('notes');
 
   await getUserImg();
