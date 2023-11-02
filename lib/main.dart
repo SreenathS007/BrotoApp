@@ -19,8 +19,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await Hive.initFlutter();
-  final Box<NoteModel> notesBox = await Hive.openBox<NoteModel>('notes');
-  //student register Adapter
+  // final Box<NoteModel> notesBox = await Hive.openBox<NoteModel>('notes');
+  //student register Adapterer an adapter?)
   if (!Hive.isAdapterRegistered(StudentModelAdapter().typeId)) {
     Hive.registerAdapter(StudentModelAdapter());
   }
@@ -37,6 +37,9 @@ Future<void> main() async {
   if (!Hive.isAdapterRegistered(UserdataModalAdapter().typeId)) {
     Hive.registerAdapter(UserdataModalAdapter());
   }
+
+  Box<NoteModel> _notesBox = await Hive.openBox<NoteModel>('notes');
+
   await getUserImg();
   HiveDb db = HiveDb();
 

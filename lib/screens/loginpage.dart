@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: EdgeInsets.all(25.0),
                     child: TextFormField(
                       controller: _emailController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Email Adress',
                         label: Text('Email Adress'),
                         fillColor: Color(0xffD8D8DD),
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: EdgeInsets.all(25.0),
                     child: TextFormField(
                       controller: _passwordController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Password',
                         label: Text('Password'),
                         suffixIcon: Icon(Icons.visibility_off),
