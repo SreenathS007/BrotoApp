@@ -1,11 +1,11 @@
 import 'package:brototype_app/screens/studentnotes/note_homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:brototype_app/screens/menubar.dart';
-import 'package:brototype_app/screens/codingchallenge.dart';
-import 'package:brototype_app/screens/hubs.dart';
-import 'package:brototype_app/screens/fumigation.dart';
-import 'package:brototype_app/screens/stories.dart';
-import 'package:brototype_app/screens/events.dart';
+import 'package:brototype_app/screens/userside/menubar/menubar.dart';
+import 'package:brototype_app/screens/userside/codingchallenge.dart';
+import 'package:brototype_app/screens/userside/hubs.dart';
+import 'package:brototype_app/screens/userside/fumigation.dart';
+import 'package:brototype_app/screens/userside/stories.dart';
+import 'package:brototype_app/screens/userside/events.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

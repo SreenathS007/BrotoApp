@@ -1,4 +1,6 @@
+import 'package:brototype_app/AdminPanel/add_fumigation.dart';
 import 'package:brototype_app/AdminPanel/codingvideo/video_list.dart';
+import 'package:brototype_app/AdminPanel/student_applied.dart';
 import 'package:brototype_app/AdminPanel/studentregister/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -146,11 +148,25 @@ class _AdminHomePageState extends State<admin_Dashboard> {
                     'Fumigation',
                     CupertinoIcons.square_list,
                     Colors.teal,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => AddFumigation(),
+                        ),
+                      );
+                    },
                   ),
                   itemDashboard(
                     'student Applied',
                     CupertinoIcons.person_2,
                     Colors.blue,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => StudentApplied(),
+                        ),
+                      );
+                    },
                   ),
                   // itemDashboard(
                   //   'Upload',

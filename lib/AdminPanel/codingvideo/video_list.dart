@@ -142,6 +142,7 @@ class _MyDialogState extends State<MyDialog> {
                     if (value == null || value.isEmpty) {
                       return "Enter Title";
                     }
+                    return null;
                   }),
               const SizedBox(
                 height: 20,
@@ -156,6 +157,7 @@ class _MyDialogState extends State<MyDialog> {
                     if (value == null || value.isEmpty) {
                       return "Enter Link";
                     }
+                    return null;
                   }),
               const SizedBox(
                 height: 30,

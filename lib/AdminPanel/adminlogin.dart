@@ -154,7 +154,7 @@ class _ScreenLoginState extends State<AdminLogin> {
   void CheckLogin(BuildContext ctx) async {
     final _username = _usernameController.text;
     final _password = _passwordController.text;
-    if (_username == 'admin' && _password == 'admin@123') {
+    if (_username == 'admin' && _password == 'admin') {
       //Goto Home
 
       final _sharedPrefs = await SharedPreferences.getInstance();
