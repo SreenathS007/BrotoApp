@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter/services.dart';
 
 class VideoPlayerScreen extends StatelessWidget {
   final String videoLink;
@@ -47,7 +48,9 @@ class VideoPlayerScreen extends StatelessWidget {
               ));
             },
             onExitFullScreen: () {
-              // You can add any necessary logic here when the video exits full screen
+              // Disable immersive mode here
+              SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+                  overlays: SystemUiOverlay.values);
             },
           ),
         ],

@@ -55,7 +55,7 @@ class _NoteHomeState extends State<NoteHomePage> {
         title: RichText(
             text: TextSpan(children: [
           TextSpan(
-              text: "My",
+              text: "Sticky",
               style: GoogleFonts.poppins(
                   color: Colors.black,
                   fontSize: 24,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class StudentApplied extends StatefulWidget {
-  const StudentApplied({super.key});
-
   @override
   State<StudentApplied> createState() => _StudentAppliedState();
 }
@@ -10,6 +8,10 @@ class StudentApplied extends StatefulWidget {
 class _StudentAppliedState extends State<StudentApplied> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Student Applied'),
+      ),
+    );
   }
 }
