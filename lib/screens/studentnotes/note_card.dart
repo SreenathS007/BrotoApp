@@ -31,6 +31,32 @@ class NoteCard extends StatefulWidget {
 }
 
 class _NoteCardState extends State<NoteCard> {
+  Future<void> _showDeleteConfirmationDialogue(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Delete Note"),
+            content: const Text("Are you sure want to delete this note?"),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () {
+                  widget.onDeletePressed?.call();
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Delete"),
+              ),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -88,7 +114,9 @@ class _NoteCardState extends State<NoteCard> {
                             ),
                             IconButton(
                               icon: Icon(Icons.delete),
-                              onPressed: widget.onDeletePressed,
+                              onPressed: () {
+                                _showDeleteConfirmationDialogue(context);
+                              },
                             )
                           ],
                         )

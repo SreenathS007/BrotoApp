@@ -55,11 +55,6 @@ class NavBar extends StatelessWidget {
               ),
             ),
           ),
-          // ListTile(
-          //   leading: Icon(Icons.settings),
-          //   title: Text('Settings'),
-          //   onTap: () => null,
-          // ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('LogOut'),
