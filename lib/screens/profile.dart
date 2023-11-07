@@ -4,7 +4,6 @@ import 'package:brototype_app/main.dart';
 import 'package:brototype_app/screens/updateprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

@@ -1,3 +1,4 @@
+import 'package:brototype_app/custom_widgets/bottomNavbar.dart';
 import 'package:brototype_app/screens/studentnotes/note_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/userside/menubar/menubar.dart';
@@ -15,13 +16,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // int _currentIndex = 0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      drawer: NavBar(),
+      drawer: NavBar(
+        userName: user_name,
+        userEmail: user_email,
+      ),
       appBar: AppBar(
         title: const Text(
           'Brototype',

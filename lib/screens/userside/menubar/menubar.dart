@@ -2,12 +2,35 @@ import 'package:brototype_app/screens/faqs.dart';
 import 'package:brototype_app/screens/updateprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:brototype_app/screens/loginpage.dart';
-import 'package:brototype_app/screens/profile.dart';
 
-class NavBar extends StatelessWidget {
-  const NavBar({super.key});
+class NavBar extends StatefulWidget {
+  final String userName;
+  final String userEmail;
+
+  NavBar({required this.userName, required this.userEmail, Key? key})
+      : super(key: key);
 
   @override
+  State<NavBar> createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
+  late String userName;
+  late String userEmail;
+  @override
+  void initState() {
+    super.initState();
+    userName = widget.userName;
+    userEmail = widget.userEmail;
+  }
+
+  void UpdateUserInfo(String newName, String newEmail) {
+    setState(() {
+      userName = newName;
+      userEmail = newEmail;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
@@ -15,8 +38,8 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('User Name'),
-            accountEmail: Text('Example@gmail.com'),
+            accountName: Text(widget.userName),
+            accountEmail: Text(widget.userEmail),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.asset(

@@ -55,7 +55,7 @@ class _ScreenLoginState extends State<AdminLogin> {
                       hintText: 'username'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Username and password must required';
+                      return 'Username must required';
                     } else {
                       return null;
                     }
@@ -80,7 +80,7 @@ class _ScreenLoginState extends State<AdminLogin> {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Username and password must required';
+                      return 'password must required';
                     } else {
                       return null;
                     }
