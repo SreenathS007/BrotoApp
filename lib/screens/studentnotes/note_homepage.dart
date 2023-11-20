@@ -46,9 +46,14 @@ class _NoteHomeState extends State<NoteHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.edit_outlined,
-          color: Colors.black,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Color.fromARGB(255, 31, 26, 26),
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         elevation: 2,
         centerTitle: true,

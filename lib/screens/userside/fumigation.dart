@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,6 +15,47 @@ class _FumigationPageState extends State<FumgnPage> {
   TextEditingController _mobileNumberController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _educationController = TextEditingController();
+
+  // FirebaseAuth auth = FirebaseAuth.instance;
+  // void savetask() async {
+  //   final clientName = _nameController.text;
+  //   final clientAge = _ageController.text;
+  //   final clientPlace = _placeController.text;
+  //   final clientMobilenumber = _mobileNumberController.text;
+  //   final clientEmail = _emailController.text;
+  //   final clientEducation = _educationController.text;
+
+  //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  //   String? userIds = firebaseAuth.currentUser?.uid;
+  //   FirebaseFirestore.instance.collection('users').doc(userIds).set({
+  //     "Name": clientName,
+  //     "Age": clientAge,
+  //     "Place": clientPlace,
+  //     "Mobile No": clientMobilenumber,
+  //     "Email": clientEmail,
+  //     "Quallification": clientEducation
+  //   });
+  // }
+
+  // uploadData() async {
+  //   Map<String, dynamic> uploaddata = {
+  //     "Name": _nameController.text,
+  //     "Age": _ageController.text,
+  //     "Place": _placeController.text,
+  //     "Mobile No": _mobileNumberController.text,
+  //     "Email": _emailController.text,
+  //     "Quallification": _educationController.text
+  //   };
+  //   await DatabaseMethods().addUserData(uploaddata);
+  //   Fluttertoast.showToast(
+  //       msg: "Registration Done Successfully!!",
+  //       toastLength: Toast.LENGTH_SHORT,
+  //       gravity: ToastGravity.CENTER,
+  //       timeInSecForIosWeb: 1,
+  //       backgroundColor: Colors.red,
+  //       textColor: Colors.white,
+  //       fontSize: 16.0);
+  // }
 
   final _formKey = GlobalKey<FormState>();
 
@@ -172,6 +215,7 @@ class _FumigationPageState extends State<FumgnPage> {
                         // If all validations pass, submit the form.
                         // _submitRegistrationForm();
                       }
+                      // savetask();
                     },
                     child: const Text('Register Now'),
                   ),
